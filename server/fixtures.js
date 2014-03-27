@@ -20,6 +20,6 @@ if (Posts.find().count() === 0) {
   Posts.insert({
     title: 'Aaron Wynia',
     author: 'Aaron Wynia',
-    url: 'www.aaronwynia.tumblr.com'
+    url: 'http://www.aaronwynia.tumblr.com'
   });
 }

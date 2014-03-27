@@ -1,0 +1,15 @@
+<template name="layout">
+  <body>
+    <div class="container">
+      <header class="navbar">
+        <div class="navbar-inner"><a href="{{pathFor 'postsList'}}" class="brand">Microscope</a></div>
+      </header>
+      <div id="main" class="row-fluid">
+        {{yield}}
+      </div>
+       <footer class="row-fluid">
+        <p class="small">Created with love by Thomas Berry in Toronto, Canada</p>
+      </footer>
+    </div>
+  </body>
+</template>
