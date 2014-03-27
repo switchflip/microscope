@@ -15,6 +15,10 @@ body {
   background: #eee;
   color: #666666; }
 
+.small {
+  font-size: 12px;
+}
+
 .navbar {
   margin-bottom: 10px; }
   /* line 32, ../sass/style.scss */
