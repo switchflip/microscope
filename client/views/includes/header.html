@@ -6,10 +6,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="{{pathFor 'postsList'}}">Microscope <span class="small">{{about}}</span></a>
+      <a class="brand" href="{{pathFor 'postsList'}}">Microscope</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><a href="{{pathFor 'postSubmit'}}">New</a></li>
+          {{#if currentUser}}
+            <li class="small"><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
+          {{/if}}
+          <li class="small"><a href="{{pathFor 'blogPage'}}">Blog</a></li>
+          <li class="small"><a href="{{pathFor 'aboutPage'}}">About</a></li>
         </ul>
         <ul class="nav pull-right">
           <li>{{loginButtons}}</li>
