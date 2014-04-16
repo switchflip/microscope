@@ -1,17 +1,5 @@
 if (Blogs.find().count() === 0) {
   Blogs.insert({
-    title: 'Introducing Telescope',
-    text: 'Sacha Greif',
-    url: 'http://sachagreif.com/introducing-telescope/'
-  });
-
-  Blogs.insert({
-    title: 'Meteor',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, aut, perspiciatis, accusamus impedit consequuntur facilis autem culpa tempore fugit enim eligendi omnis quam excepturi sapiente aliquid! Cupiditate, labore aliquid distinctio!',
-    url: 'http://meteor.com'
-  });
-
-  Blogs.insert({
     title: 'The Meteor Book',
     text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, aperiam, assumenda voluptatum ipsam aliquam consectetur facilis officia quo illo provident ipsa ex deserunt optio minus officiis magni est rerum nihil!',
     url: 'http://themeteorbook.com'
@@ -50,4 +38,3 @@ if (Posts.find().count() === 0) {
     url: 'http://www.aaronwynia.tumblr.com'
   });
 }
-

@@ -1,8 +1,9 @@
-<template name="blogPage">
+<template name="blogList">
     <div class="posts">
     <h2>Blog</h2>
+    <hr>
     {{#each blogs}}
-      {{blogItem}}
+      {{> blogItem}}
     {{/each}}
     </div>
 </template>

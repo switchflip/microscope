@@ -8,6 +8,7 @@ Posts.allow({
 Posts.deny({
   update: function(userId, post, fieldNames) {
     // may only edit the following two fields
+    // checks to array to see it equals 0 once url and title have been removed
     return (_.without(fieldNames, 'url', 'title').length > 0);
   }
 });
