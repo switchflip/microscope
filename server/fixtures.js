@@ -1,14 +1,14 @@
 if (Blogs.find().count() === 0) {
   Blogs.insert({
     title: 'The Meteor Book',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, aperiam, assumenda voluptatum ipsam aliquam consectetur facilis officia quo illo provident ipsa ex deserunt optio minus officiis magni est rerum nihil!',
-    url: 'http://themeteorbook.com'
+    blogText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, aperiam, assumenda voluptatum ipsam aliquam consectetur facilis officia quo illo provident ipsa ex deserunt optio minus officiis magni est rerum nihil!',
+    pubDate: new Date()
   });
 
   Blogs.insert({
     title: 'Aaron Wynia',
-    text: 'qLorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, consectetur, doloremque, minus maxime delectus officia suscipit voluptas repellendus ipsa ut minima sint nulla quos aut enim laborum placeat aliquid hic.',
-    url: 'http://www.aaronwynia.tumblr.com'
+    blogText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, consectetur, doloremque, minus maxime delectus officia suscipit voluptas repellendus ipsa ut minima sint nulla quos aut enim laborum placeat aliquid hic.',
+    pubDate: new Date()
   });
 }
 
