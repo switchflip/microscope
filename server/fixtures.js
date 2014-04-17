@@ -1,40 +1,77 @@
-if (Blogs.find().count() === 0) {
-  Blogs.insert({
-    title: 'The Meteor Book',
-    blogText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, aperiam, assumenda voluptatum ipsam aliquam consectetur facilis officia quo illo provident ipsa ex deserunt optio minus officiis magni est rerum nihil!',
-    pubDate: new Date()
-  });
-
-  Blogs.insert({
-    title: 'Aaron Wynia',
-    blogText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, consectetur, doloremque, minus maxime delectus officia suscipit voluptas repellendus ipsa ut minima sint nulla quos aut enim laborum placeat aliquid hic.',
-    pubDate: new Date()
-  });
-}
-
-
+// Fixture data
 if (Posts.find().count() === 0) {
-  Posts.insert({
+  var now = new Date().getTime();
+
+  // create two users
+  var tomId = Meteor.users.insert({
+    profile: { name: 'Tom Coleman' }
+  });
+  var tom = Meteor.users.findOne(tomId);
+
+  var sachaId = Meteor.users.insert({
+    profile: { name: 'Sacha Greif' }
+  });
+  var sacha = Meteor.users.findOne(sachaId);
+
+  var aaronId = Meteor.users.insert({
+    profile: { name: 'Aaron Wynia' }
+  });
+  var aaron = Meteor.users.findOne(aaronId);
+
+  var polaroidingId = Posts.insert({
+    title: 'Polaroiding',
+    userId: aaron._id,
+    author: aaron.profile.name,
+    url: 'http://www.aaronwynia.tumblr.com',
+    submitted: now - 7 * 3600 * 1000
+  });
+
+
+  var telescopeId = Posts.insert({
     title: 'Introducing Telescope',
-    author: 'Sacha Greif',
-    url: 'http://sachagreif.com/introducing-telescope/'
+    userId: sacha._id,
+    author: sacha.profile.name,
+    url: 'http://sachagreif.com/introducing-telescope/',
+    submitted: now - 7 * 3600 * 1000
+  });
+
+  Comments.insert({
+    postId: polaroidingId,
+    userId: tom._id,
+    author: tom.profile.name,
+    submitted: now - 5 * 3600 * 1000,
+    body: 'Super wack photos bro!'
+  })
+
+  Comments.insert({
+    postId: telescopeId,
+    userId: tom._id,
+    author: tom.profile.name,
+    submitted: now - 5 * 3600 * 1000,
+    body: 'Interesting project Sacha, can I get involved?'
+  });
+
+  Comments.insert({
+    postId: telescopeId,
+    userId: sacha._id,
+    author: sacha.profile.name,
+    submitted: now - 3 * 3600 * 1000,
+    body: 'You sure can Tom!'
   });
 
   Posts.insert({
     title: 'Meteor',
-    author: 'Tom Coleman',
-    url: 'http://meteor.com'
+    userId: tom._id,
+    author: tom.profile.name,
+    url: 'http://meteor.com',
+    submitted: now - 10 * 3600 * 1000
   });
 
   Posts.insert({
     title: 'The Meteor Book',
-    author: 'Tom Coleman',
-    url: 'http://themeteorbook.com'
-  });
-
-  Posts.insert({
-    title: 'Aaron Wynia',
-    author: 'Aaron Wynia',
-    url: 'http://www.aaronwynia.tumblr.com'
+    userId: tom._id,
+    author: tom.profile.name,
+    url: 'http://themeteorbook.com',
+    submitted: now - 12 * 3600 * 1000
   });
 }
