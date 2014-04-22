@@ -7,41 +7,19 @@ if (Posts.find().count() === 0) {
     profile: { name: 'Tom Coleman' }
   });
   var tom = Meteor.users.findOne(tomId);
-
   var sachaId = Meteor.users.insert({
     profile: { name: 'Sacha Greif' }
   });
   var sacha = Meteor.users.findOne(sachaId);
-
-  var aaronId = Meteor.users.insert({
-    profile: { name: 'Aaron Wynia' }
-  });
-  var aaron = Meteor.users.findOne(aaronId);
-
-  var polaroidingId = Posts.insert({
-    title: 'Polaroiding',
-    userId: aaron._id,
-    author: aaron.profile.name,
-    url: 'http://www.aaronwynia.tumblr.com',
-    submitted: now - 7 * 3600 * 1000
-  });
-
 
   var telescopeId = Posts.insert({
     title: 'Introducing Telescope',
     userId: sacha._id,
     author: sacha.profile.name,
     url: 'http://sachagreif.com/introducing-telescope/',
-    submitted: now - 7 * 3600 * 1000
+    submitted: now - 7 * 3600 * 1000,
+    commentsCount: 2
   });
-
-  Comments.insert({
-    postId: polaroidingId,
-    userId: tom._id,
-    author: tom.profile.name,
-    submitted: now - 5 * 3600 * 1000,
-    body: 'Super wack photos bro!'
-  })
 
   Comments.insert({
     postId: telescopeId,
@@ -64,7 +42,8 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     url: 'http://meteor.com',
-    submitted: now - 10 * 3600 * 1000
+    submitted: now - 10 * 3600 * 1000,
+    commentsCount: 0
   });
 
   Posts.insert({
@@ -72,6 +51,7 @@ if (Posts.find().count() === 0) {
     userId: tom._id,
     author: tom.profile.name,
     url: 'http://themeteorbook.com',
-    submitted: now - 12 * 3600 * 1000
+    submitted: now - 12 * 3600 * 1000,
+    commentsCount: 0
   });
 }
