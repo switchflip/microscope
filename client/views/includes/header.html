@@ -9,7 +9,10 @@
       <a class="brand" href="{{pathFor 'postsList'}}">Microscope</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          {{#if currentUser}}
+          {{#if currentUser }}
+            <li class="dropdown">
+              {{> notifications }}
+            </li>
             <li class="small"><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
             <li class="small"><a href="{{pathFor 'blogSubmit'}}">New Blog post</a></li>
           {{/if}}
